@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>This is the homepage</h1>
+<a href="{% url 'add-product' %}"> Add a new product </a><br><br>
+{% for i in products %}
+    {{ i.name }}<br>
+    {{ i.price }}<br>
+    {{ i.description }}<br>
+    <a href="{% url 'update-product' i.id %}"> Update Product </a><br>
+    <a href="{% url 'delete-product' i.id %}"> Delete product </a><br><br>
+    
+{% endfor %}<br><br>
+<a href="{% url 'add_photo' %}"> Add a new photo </a><br><br>
+
+{% for i in photos %}
+    {{ i.title }}<br>
+    <img src="{{ i.image.url }}">
+        <a href="{% url 'update-photo' i.id %}"> Update Photo </a><br>
+        <a href="{% url 'delete-photo' i.id %}"> Delete Photo </a><br><br>
+
+
+ 
+{% endfor %}
+</body>
+</html>
